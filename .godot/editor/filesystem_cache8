@@ -1,14 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707202788
+::res://::1707205666
 icon.svg::CompressedTexture2D::1067004644875384145::1707139803::1707139828::1::::<><>::
 SceneHandler.tscn::PackedScene::8696943337936434883::1707146935::0::1::::<><>::
 ::res://Assets/::1707140860
 ::res://Assets/Enemies/::1707140262
-::res://Assets/Enviroment/::1707140860
+::res://Assets/Enviroment/::1707205666
 ::res://Assets/Enviroment/Props/::1707140316
-::res://Assets/Enviroment/Tilesets/::1707140321
+::res://Assets/Enviroment/Tilesets/::1707205666
+towerDefense_tilesheet.png::CompressedTexture2D::332531767212989917::1707143063::1707205666::1::::<><>::
 ::res://Assets/Icons/::1707140285
-::res://Assets/Towers/::1707140268
+::res://Assets/Towers/::1707203234
+Tower 01.png::CompressedTexture2D::6577570138765915593::1707144549::1707203234::1::::<><>::
+Tower 02.png::CompressedTexture2D::7327089218733017589::1707144550::1707203234::1::::<><>::
 ::res://Assets/UI/::1707140273
 ::res://Licenses/::1707140446
 ::res://Resources/::1707140860
