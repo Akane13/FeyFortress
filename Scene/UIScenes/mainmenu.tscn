@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bun4yijhd5307"]
+
+[ext_resource type="Texture2D" uid="uid://bil1yniup2xa7" path="res://Assets/UI/BackGround.png" id="1_66wqk"]
+[ext_resource type="Texture2D" uid="uid://lo6dr11lginq" path="res://Assets/UI/button/Button_Hover_3Slides.png" id="1_w3hcf"]
+[ext_resource type="Texture2D" uid="uid://dfhyvhmpxuety" path="res://Assets/UI/button/Button_Disable_3Slides.png" id="2_1ebo5"]
+
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_66wqk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 12
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_w3hcf")
+texture_pressed = ExtResource("2_1ebo5")
+stretch_mode = 0

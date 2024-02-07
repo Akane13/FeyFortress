@@ -1,1 +1,5 @@
 res://Scene/Maps/Map1.tscn
+res://Scene/SupportScenes/tower1.tscn
+res://Scene/SupportScenes/enemy/enemy1.tscn
+res://SceneHandler.tscn
+res://Scene/UIScenes/mainmenu.tscn

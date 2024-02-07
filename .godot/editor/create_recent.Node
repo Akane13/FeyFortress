@@ -1,2 +1,10 @@
+TextureButton
+VBoxContainer
+MarginContainer
+TextureRect
+AnimatedSprite2D
+Node2D
+Sprite2D
+AnimationPlayer
 TileMap
 Node

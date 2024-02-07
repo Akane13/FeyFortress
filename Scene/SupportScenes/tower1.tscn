@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpt2wxuq0v0bk"]
+
+[ext_resource type="Texture2D" uid="uid://d4ev2rqm2785b" path="res://Assets/Towers/Tower_Red.png" id="1_l20i3"]
+
+[node name="tower1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_l20i3")
