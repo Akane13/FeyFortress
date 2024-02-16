@@ -7,3 +7,6 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_l20i3")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(0, -82)

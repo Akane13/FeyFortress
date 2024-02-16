@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bun4yijhd5307"]
+[gd_scene load_steps=5 format=3 uid="uid://bun4yijhd5307"]
 
 [ext_resource type="Texture2D" uid="uid://bil1yniup2xa7" path="res://Assets/UI/BackGround.png" id="1_66wqk"]
+[ext_resource type="Script" path="res://Scene/UIScenes/mainmenu.gd" id="1_epmi1"]
 [ext_resource type="Texture2D" uid="uid://lo6dr11lginq" path="res://Assets/UI/button/Button_Hover_3Slides.png" id="1_w3hcf"]
 [ext_resource type="Texture2D" uid="uid://dfhyvhmpxuety" path="res://Assets/UI/button/Button_Disable_3Slides.png" id="2_1ebo5"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_epmi1")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -38,8 +40,10 @@ custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 12
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="NewGame" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
@@ -47,3 +51,62 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("1_w3hcf")
 texture_pressed = ExtResource("2_1ebo5")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/NewGame"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 287.0
+offset_bottom = 58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_w3hcf")
+texture_pressed = ExtResource("2_1ebo5")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Option"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 287.0
+offset_bottom = 58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Option"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_w3hcf")
+texture_pressed = ExtResource("2_1ebo5")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 287.0
+offset_bottom = 58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

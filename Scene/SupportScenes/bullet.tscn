@@ -141,4 +141,4 @@ animations = [{
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2l3op")
 animation = &"bullet"
-frame_progress = 0.0471247
+frame_progress = 0.658825
