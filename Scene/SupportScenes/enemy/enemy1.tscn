@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdtsr03w643it"]
+[gd_scene load_steps=18 format=3 uid="uid://bdtsr03w643it"]
 
+[ext_resource type="Script" path="res://Scene/SupportScenes/enemy/enemy1.gd" id="1_k4o32"]
 [ext_resource type="Texture2D" uid="uid://rxf1a005rjbw" path="res://Assets/Enemies/Torch_Blue.png" id="1_l12fl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu170"]
@@ -106,7 +107,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="enemy1" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4dyb"]
+radius = 22.5
+height = 57.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_k4o32")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -114,4 +120,9 @@ animations = [{
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_78nrp")
 animation = &"walk"
-frame_progress = 0.956122
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l4dyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

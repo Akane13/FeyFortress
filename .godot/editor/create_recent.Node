@@ -1,3 +1,10 @@
+Timer
+Path2D
+AnimationPlayer
+PathFollow2D
+Node2D
+CollisionShape2D
+CharacterBody2D
 Label
 Marker2D
 AnimatedSprite2D
@@ -5,8 +12,4 @@ TextureButton
 VBoxContainer
 MarginContainer
 TextureRect
-Node2D
 Sprite2D
-AnimationPlayer
-TileMap
-Node
