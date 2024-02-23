@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://65coan24dipy"]
+
+[ext_resource type="Script" path="res://Scene/SupportScenes/tower_panel.gd" id="1_40y6m"]
+[ext_resource type="Texture2D" uid="uid://d4ev2rqm2785b" path="res://Assets/Towers/Tower_Red.png" id="2_e6kjr"]
+
+[node name="tower_panel" type="Panel"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_40y6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.25)
+texture = ExtResource("2_e6kjr")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpt2wxuq0v0bk"]
+[gd_scene load_steps=6 format=3 uid="uid://bpt2wxuq0v0bk"]
 
 [ext_resource type="Texture2D" uid="uid://d4ev2rqm2785b" path="res://Assets/Towers/Tower_Red.png" id="1_l20i3"]
 [ext_resource type="Script" path="res://Scene/SupportScenes/tower1.gd" id="1_ldg40"]
@@ -10,11 +10,17 @@ height = 114.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kadsn"]
 radius = 280.401
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4umu1"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 280
+corner_radius_top_right = 280
+corner_radius_bottom_right = 280
+corner_radius_bottom_left = 280
+
 [node name="tower1" type="StaticBody2D"]
 script = ExtResource("1_ldg40")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 60)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_b41m3")
 one_way_collision_margin = 0.0
@@ -24,15 +30,23 @@ position = Vector2(0, -82)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -60)
 texture = ExtResource("1_l20i3")
 
 [node name="Tower" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
-position = Vector2(0, 30)
 shape = SubResource("CircleShape2D_kadsn")
 
 [node name="BulletContainer" type="Node" parent="."]
+
+[node name="area" type="Panel" parent="."]
+modulate = Color(0, 0, 1, 0.470588)
+offset_left = -280.0
+offset_top = -280.0
+offset_right = 280.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4umu1")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

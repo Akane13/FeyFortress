@@ -1,3 +1,7 @@
+Panel
+Sprite2D
+FlowContainer
+CanvasLayer
 ColorRect
 TextureRect
 Button
@@ -8,8 +12,3 @@ Area2D
 CollisionShape2D
 CharacterBody2D
 StaticBody2D
-Timer
-Path2D
-AnimationPlayer
-PathFollow2D
-Label

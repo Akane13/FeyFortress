@@ -6,8 +6,10 @@ func pause():
 	get_tree().paused=true
 	$pause_menu.show()
 	$Pause.hide()
+	$UI.hide()
 
 func unpause():
 	$pause_menu.hide()
 	get_tree().paused=false
 	$Pause.show()
+	$UI.show()
