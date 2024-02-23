@@ -1,8 +1,7 @@
 res://Scene/Maps/Map1.tscn
+res://Scene/SupportScenes/tower1.gd
 res://Scene/SupportScenes/tower1.tscn
 res://Scene/SupportScenes/bullet.tscn
-res://Scene/UIScenes/mainmenu.tscn
 res://Scene/SupportScenes/enemy/enemy1.tscn
-res://Scene/SupportScenes/enemy/enemy1.gd
-res://Scene/Maps/PathSpawner.gd
 res://Scene/Maps/path_map1.tscn
+res://Scene/pause_menu.tscn

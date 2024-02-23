@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://s5p0hsp3e05t"]
+[gd_scene load_steps=23 format=3 uid="uid://s5p0hsp3e05t"]
 
 [ext_resource type="Texture2D" uid="uid://coc2eoigl1qf1" path="res://Assets/Enviroment/Tilesets/Tilemap_Flat.png" id="1_mcpdy"]
+[ext_resource type="Script" path="res://Scene/Maps/Map1.gd" id="1_x4j4b"]
 [ext_resource type="Texture2D" uid="uid://dyx03jkjssphy" path="res://Assets/Enviroment/Props/02.png" id="2_fun65"]
 [ext_resource type="Texture2D" uid="uid://b5sd2tiklny3s" path="res://Assets/Enviroment/Props/03.png" id="3_m1to0"]
 [ext_resource type="Texture2D" uid="uid://bk8gmmb6dtfkn" path="res://Assets/Enviroment/Props/05.png" id="4_v0gp1"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8mp4avv72h45" path="res://Assets/Enviroment/Props/11.png" id="7_f4iif"]
 [ext_resource type="Texture2D" uid="uid://dkpgytgbi04he" path="res://Assets/Enviroment/Props/17.png" id="8_q7um8"]
 [ext_resource type="Script" path="res://Scene/Maps/PathSpawner.gd" id="9_njij6"]
+[ext_resource type="PackedScene" uid="uid://bpt2wxuq0v0bk" path="res://Scene/SupportScenes/tower1.tscn" id="10_sn83x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wx3g3"]
 texture = ExtResource("1_mcpdy")
@@ -313,9 +315,9 @@ sources/8 = SubResource("TileSetAtlasSource_a2iek")
 
 [node name="Map1" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_x4j4b")
 
 [node name="ground" type="TileMap" parent="."]
-visible = false
 texture_filter = 1
 tile_set = SubResource("TileSet_afud0")
 format = 2
@@ -330,6 +332,43 @@ layer_0/tile_data = PackedInt32Array(-131069, 458752, 3, -131070, 393216, 0, -13
 script = ExtResource("9_njij6")
 
 [node name="Timer" type="Timer" parent="PathSpawner"]
+wait_time = 5.0
 autostart = true
 
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="tower1" parent="Towers" instance=ExtResource("10_sn83x")]
+position = Vector2(233, 198)
+
+[node name="tower2" parent="Towers" instance=ExtResource("10_sn83x")]
+position = Vector2(38, 301)
+
+[node name="Pause" type="Button" parent="."]
+offset_left = 1021.0
+offset_top = 43.0
+offset_right = 1227.0
+offset_bottom = 134.0
+text = "PAUSE"
+
+[node name="pause_menu" type="MenuBar" parent="."]
+process_mode = 2
+visible = false
+offset_right = 1279.0
+offset_bottom = 724.0
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu"]
+layout_mode = 0
+offset_right = 1288.0
+offset_bottom = 723.0
+
+[node name="continue" type="Button" parent="pause_menu"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 332.0
+offset_right = 833.0
+offset_bottom = 409.0
+text = "Continue"
+
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="Pause" to="." method="pause"]
+[connection signal="pressed" from="pause_menu/continue" to="." method="unpause"]

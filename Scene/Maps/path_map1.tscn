@@ -16,4 +16,4 @@ position = Vector2(62, -19)
 rotation = 1.64384
 loop = false
 
-[node name="CharacterBody2D" parent="PathFollow2D" instance=ExtResource("1_xv3dj")]
+[node name="enemy1" parent="PathFollow2D" instance=ExtResource("1_xv3dj")]

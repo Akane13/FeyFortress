@@ -1,12 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpt2wxuq0v0bk"]
+[gd_scene load_steps=5 format=3 uid="uid://bpt2wxuq0v0bk"]
 
 [ext_resource type="Texture2D" uid="uid://d4ev2rqm2785b" path="res://Assets/Towers/Tower_Red.png" id="1_l20i3"]
+[ext_resource type="Script" path="res://Scene/SupportScenes/tower1.gd" id="1_ldg40"]
 
-[node name="tower1" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b41m3"]
+radius = 49.0
+height = 114.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kadsn"]
+radius = 280.401
+
+[node name="tower1" type="StaticBody2D"]
+script = ExtResource("1_ldg40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 60)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_b41m3")
+one_way_collision_margin = 0.0
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(0, -82)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_l20i3")
 
-[node name="Aim" type="Marker2D" parent="."]
-position = Vector2(0, -82)
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
+position = Vector2(0, 30)
+shape = SubResource("CircleShape2D_kadsn")
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
