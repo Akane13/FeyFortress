@@ -7,9 +7,11 @@ func pause():
 	$pause_menu.show()
 	$Pause.hide()
 	$UI.hide()
+	$Towers.hide()
 
 func unpause():
 	$pause_menu.hide()
 	get_tree().paused=false
 	$Pause.show()
 	$UI.show()
+	$Towers.show()

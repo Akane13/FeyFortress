@@ -14,4 +14,13 @@ position = Vector2(32, 32)
 scale = Vector2(0.5, 0.25)
 texture = ExtResource("2_e6kjr")
 
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -16.0
+offset_top = 96.0
+offset_right = 54.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 20
+text = "10 gold
+"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

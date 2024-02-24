@@ -1,7 +1,27 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdtsr03w643it"]
+[gd_scene load_steps=21 format=3 uid="uid://bdtsr03w643it"]
 
 [ext_resource type="Script" path="res://Scene/SupportScenes/enemy/enemy1.gd" id="1_k4o32"]
 [ext_resource type="Texture2D" uid="uid://rxf1a005rjbw" path="res://Assets/Enemies/Torch_Blue.png" id="1_l12fl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx81s"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r6xy"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_x768c"]
+script/source = "extends ProgressBar
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.max_value = get_parent().Health
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	self.value=get_parent().Health
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu170"]
 atlas = ExtResource("1_l12fl")
@@ -113,6 +133,17 @@ height = 57.0
 
 [node name="enemy1" type="CharacterBody2D"]
 script = ExtResource("1_k4o32")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vx81s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7r6xy")
+value = 50.0
+show_percentage = false
+script = SubResource("GDScript_x768c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

@@ -9,9 +9,13 @@ func _physics_process(delta):
 	Path.progress += speed * delta
 	
 	if Path.get_progress_ratio() ==1:
+		Global.Health -= 1
 		death()
+		
 	if Health<=0:
+		Global.Gold += 1
 		death()
+		
 
 func death():
 	Path.get_parent().queue_free()
