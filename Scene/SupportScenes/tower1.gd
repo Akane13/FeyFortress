@@ -8,7 +8,7 @@ var currTargets = []
 var curr
 
 var reload=0
-var range=560
+var range=280
 
 @onready var timer = get_node("Upgrade/ProgressBar/Timer")
 var startShooting = false
@@ -17,6 +17,7 @@ func _process(_delta):
 	get_node("Upgrade/ProgressBar").global_position = self.position + Vector2(-48,56)
 	if is_instance_valid(curr):
 		if timer.is_stopped():
+			shoot()
 			timer.start()
 	else:
 		for i in get_node("BulletContainer").get_child_count():

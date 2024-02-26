@@ -14,6 +14,7 @@ func _physics_process(delta):
 		
 	if Health<=0:
 		Global.Gold += 1
+		Global.score+=25
 		death()
 		
 

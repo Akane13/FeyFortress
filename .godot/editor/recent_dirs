@@ -1,8 +1,8 @@
-res://Scene/Global
 res://Scene/SupportScenes
+res://Assets/Effect
+res://Scene/Global
 res://
 res://Scene/Maps
-res://Assets/Effect
 res://Scene/UIScenes
 res://Scene/SupportScenes/enemy
 res://Assets/Enemies

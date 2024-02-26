@@ -227,6 +227,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7r6xy")
 value = 50.0
 show_percentage = false
 script = SubResource("GDScript_nkp84")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Upgrade/ProgressBar"]
 wait_time = 3.0

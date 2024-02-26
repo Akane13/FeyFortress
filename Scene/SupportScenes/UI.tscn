@@ -1,26 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://chsbc0b16ys4d"]
+[gd_scene load_steps=3 format=3 uid="uid://chsbc0b16ys4d"]
 
 [ext_resource type="PackedScene" uid="uid://65coan24dipy" path="res://Scene/SupportScenes/tower_panel.tscn" id="1_hdhx6"]
-
-[sub_resource type="GDScript" id="GDScript_g5ap5"]
-script/source = "extends Label
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	self.text = \"Health : \" + str(Global.Health)
-"
-
-[sub_resource type="GDScript" id="GDScript_3or5k"]
-script/source = "extends Label
-
-
-func _process(_delta):
-	self.text = \"Gold : \" + str(Global.Gold)
-
-"
+[ext_resource type="Script" path="res://Scene/SupportScenes/UI.gd" id="1_jab1g"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_jab1g")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 448.0
@@ -47,7 +31,6 @@ offset_right = 920.0
 offset_bottom = 75.0
 theme_override_font_sizes/font_size = 40
 text = "Health : "
-script = SubResource("GDScript_g5ap5")
 
 [node name="Gold" type="Label" parent="."]
 offset_left = 768.0
@@ -56,4 +39,11 @@ offset_right = 920.0
 offset_bottom = 115.0
 theme_override_font_sizes/font_size = 40
 text = "Gold : "
-script = SubResource("GDScript_3or5k")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 768.0
+offset_top = 72.0
+offset_right = 920.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 40
+text = "Score : "
