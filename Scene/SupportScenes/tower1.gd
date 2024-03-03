@@ -3,17 +3,17 @@ extends StaticBody2D
 @onready var container=$BulletContainer
 var bullet= preload("res://Scene/SupportScenes/bullet.tscn")
 var bulletDamage= 2
+var update_limit
 var pathName
 var currTargets = []
 var curr
 
 var reload=0
 var range=280
-
 @onready var timer = get_node("Upgrade/ProgressBar/Timer")
 var startShooting = false
 
-func _process(_delta):
+func _physics_process(_delta: float) -> void:
 	get_node("Upgrade/ProgressBar").global_position = self.position + Vector2(-48,56)
 	if is_instance_valid(curr):
 		if timer.is_stopped():
@@ -29,7 +29,7 @@ func shoot():
 	var tempBullet= bullet.instantiate()
 	tempBullet.pathName=pathName
 	tempBullet.bulletDamage = bulletDamage
-	get_node("BulletContainer").call_deferred("add_child",tempBullet)
+	$BulletContainer.call_deferred("add_child",tempBullet)
 	tempBullet.global_position =$Aim.global_position
 
 func _on_tower_body_entered(body):
@@ -72,22 +72,20 @@ func _on_input_event(_viewport, event, _shape_idx):
 func _on_timer_timeout():
 	shoot()
 
-
-func _on_attack_speed_pressed():
+func _on_power_pressed():
+	bulletDamage+=1
+	range +=30
 	if reload<=2:
 		reload+=0.1
 	timer.wait_time = 3 - reload
 
-func _on_power_pressed():
-	bulletDamage+=1
-
-func _on_range_pressed():
-	range +=30
+func _on_delete_pressed():
+	queue_free()
 
 func upgrade_powers():
-	$Upgrade/Upgrade/HBoxContainer/Attack_Speed/Label.text = str(3-reload)
-	$Upgrade/Upgrade/HBoxContainer/Power/Label.text = str(bulletDamage)
-	$Upgrade/Upgrade/HBoxContainer/Range/Label.text = str(range)
+	#$Upgrade/Upgrade/HBoxContainer/Attack_Speed/Label.text = str(3-reload)
+	#$Upgrade/Upgrade/HBoxContainer/Power/Label.text = str(bulletDamage)
+	#$Upgrade/Upgrade/HBoxContainer/Range/Label.text = str(range)
 	
 	$Tower/CollisionShape2D.shape.radius =range
 
@@ -97,3 +95,4 @@ func _on_range_mouse_entered():
 
 func _on_range_mouse_exited():
 	$Tower/CollisionShape2D.hide()
+

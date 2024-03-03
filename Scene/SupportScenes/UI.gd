@@ -1,11 +1,11 @@
 extends CanvasLayer
 
-@onready var health = $Health
-@onready var gold = $Gold
+@onready var health = $Hp/Health
+@onready var gold = $Money/Gold
 @onready var score = $Score
 
 func _process(_delta):
 	#get data from global.gd (global variable)
-	health.text = "Health : " + str(Global.Health)
-	gold.text = "Gold : " + str(Global.Gold)
-	score.text = "Score : " + str(Global.score)
+	health.text = str(Global.Health) + " / 10"
+	gold.text = str(Global.Gold) 
+	score.text = str(Global.score)

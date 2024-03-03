@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chsbc0b16ys4d"]
+[gd_scene load_steps=5 format=3 uid="uid://chsbc0b16ys4d"]
 
 [ext_resource type="PackedScene" uid="uid://65coan24dipy" path="res://Scene/SupportScenes/tower_panel.tscn" id="1_hdhx6"]
 [ext_resource type="Script" path="res://Scene/SupportScenes/UI.gd" id="1_jab1g"]
+[ext_resource type="Texture2D" uid="uid://gwlwm5ufwv76" path="res://Assets/Icons/playing/hp.png" id="3_hre8l"]
+[ext_resource type="Texture2D" uid="uid://3wli6usi2jqo" path="res://Assets/Icons/playing/money.png" id="4_5q5yb"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_jab1g")
@@ -24,21 +26,30 @@ layout_mode = 2
 [node name="tower_panel2" parent="Panel/FlowContainer" instance=ExtResource("1_hdhx6")]
 layout_mode = 2
 
-[node name="Health" type="Label" parent="."]
-offset_left = 768.0
-offset_top = -8.0
-offset_right = 920.0
-offset_bottom = 75.0
-theme_override_font_sizes/font_size = 40
-text = "Health : "
+[node name="Hp" type="Sprite2D" parent="."]
+position = Vector2(896, 32)
+texture = ExtResource("3_hre8l")
 
-[node name="Gold" type="Label" parent="."]
-offset_left = 768.0
-offset_top = 32.0
-offset_right = 920.0
-offset_bottom = 115.0
+[node name="Health" type="Label" parent="Hp"]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 23.0
 theme_override_font_sizes/font_size = 40
-text = "Gold : "
+text = " "
+horizontal_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="."]
+position = Vector2(1072, 32)
+texture = ExtResource("4_5q5yb")
+
+[node name="Gold" type="Label" parent="Money"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="."]
 offset_left = 768.0

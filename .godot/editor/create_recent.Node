@@ -1,3 +1,8 @@
+VBoxContainer
+TextureButton
+TextureRect
+Label
+RichTextLabel
 CollisionShape2D
 Area2D
 Node
@@ -6,9 +11,4 @@ Sprite2D
 StaticBody2D
 AnimatedSprite2D
 Marker2D
-Label
 Timer
-ProgressBar
-Button
-HBoxContainer
-Panel

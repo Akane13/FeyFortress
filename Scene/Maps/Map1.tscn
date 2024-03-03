@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://s5p0hsp3e05t"]
+[gd_scene load_steps=25 format=3 uid="uid://s5p0hsp3e05t"]
 
 [ext_resource type="Texture2D" uid="uid://coc2eoigl1qf1" path="res://Assets/Enviroment/Tilesets/Tilemap_Flat.png" id="1_mcpdy"]
 [ext_resource type="Script" path="res://Scene/Maps/Map1.gd" id="1_x4j4b"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dkpgytgbi04he" path="res://Assets/Enviroment/Props/17.png" id="8_q7um8"]
 [ext_resource type="Script" path="res://Scene/Maps/PathSpawner.gd" id="9_njij6"]
 [ext_resource type="PackedScene" uid="uid://chsbc0b16ys4d" path="res://Scene/SupportScenes/UI.tscn" id="11_j8280"]
+[ext_resource type="Texture2D" uid="uid://bwk6jqa13itvk" path="res://Assets/Icons/playing/pause.png" id="11_s8lco"]
+[ext_resource type="Texture2D" uid="uid://bejjdutnn0y7n" path="res://Assets/Icons/main menu/Button_Disable_3Slides.png" id="12_228yy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wx3g3"]
 texture = ExtResource("1_mcpdy")
@@ -404,11 +406,12 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="Pause" type="Button" parent="."]
-offset_left = 1008.0
-offset_right = 1214.0
+[node name="Pause" type="TextureButton" parent="."]
+offset_left = 1152.0
+offset_right = 1216.0
 offset_bottom = 64.0
-text = "PAUSE"
+texture_normal = ExtResource("11_s8lco")
+texture_pressed = ExtResource("11_s8lco")
 
 [node name="pause_menu" type="MenuBar" parent="."]
 process_mode = 2
@@ -420,17 +423,93 @@ offset_bottom = 724.0
 layout_mode = 0
 offset_right = 1288.0
 offset_bottom = 723.0
+color = Color(0, 0, 0, 0.384314)
 
-[node name="continue" type="Button" parent="pause_menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu"]
 layout_mode = 0
-offset_left = 511.0
-offset_top = 332.0
-offset_right = 833.0
-offset_bottom = 409.0
-text = "Continue"
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="continue" type="TextureButton" parent="pause_menu"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 256.0
+offset_right = 804.0
+offset_bottom = 368.0
+texture_normal = ExtResource("12_228yy")
+texture_pressed = ExtResource("12_228yy")
+texture_hover = ExtResource("12_228yy")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="pause_menu/continue"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 286.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="Option" type="TextureButton" parent="pause_menu"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 368.0
+offset_right = 804.0
+offset_bottom = 480.0
+texture_normal = ExtResource("12_228yy")
+texture_pressed = ExtResource("12_228yy")
+texture_hover = ExtResource("12_228yy")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="pause_menu/Option"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 286.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 50
+text = "Option"
+horizontal_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="pause_menu"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 488.0
+offset_right = 804.0
+offset_bottom = 600.0
+texture_normal = ExtResource("12_228yy")
+texture_pressed = ExtResource("12_228yy")
+texture_hover = ExtResource("12_228yy")
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="pause_menu/Quit"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 286.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 568.0
+offset_top = 136.0
+offset_right = 724.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 50
+text = "PAUSE"
 
 [node name="UI" parent="." instance=ExtResource("11_j8280")]
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="pause"]
 [connection signal="pressed" from="pause_menu/continue" to="." method="unpause"]
+[connection signal="pressed" from="pause_menu/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="pause_menu/Quit" to="." method="_on_quit_pressed"]

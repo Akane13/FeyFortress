@@ -1,2 +1,11 @@
 res://Scene/Maps/Map1.tscn
 res://Scene/SupportScenes/tower1.gd
+res://Scene/SupportScenes/bullet.gd
+res://Scene/SupportScenes/UI.tscn
+res://Scene/SupportScenes/tower_panel.tscn
+res://Scene/SupportScenes/tower1.tscn
+res://Scene/SupportScenes/bullet.tscn
+res://Scene/SupportScenes/enemy/enemy1.tscn
+res://Scene/Maps/path_map1.tscn
+res://Scene/SupportScenes/tower2.tscn
+res://Scene/UIScenes/mainmenu.tscn
