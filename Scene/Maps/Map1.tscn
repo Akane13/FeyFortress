@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://s5p0hsp3e05t"]
+[gd_scene load_steps=27 format=3 uid="uid://s5p0hsp3e05t"]
 
 [ext_resource type="Texture2D" uid="uid://coc2eoigl1qf1" path="res://Assets/Enviroment/Tilesets/Tilemap_Flat.png" id="1_mcpdy"]
 [ext_resource type="Script" path="res://Scene/Maps/Map1.gd" id="1_x4j4b"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://chsbc0b16ys4d" path="res://Scene/SupportScenes/UI.tscn" id="11_j8280"]
 [ext_resource type="Texture2D" uid="uid://bwk6jqa13itvk" path="res://Assets/Icons/playing/pause.png" id="11_s8lco"]
 [ext_resource type="Texture2D" uid="uid://bejjdutnn0y7n" path="res://Assets/Icons/main menu/Button_Disable_3Slides.png" id="12_228yy"]
+[ext_resource type="PackedScene" uid="uid://fk1a4pokv5tg" path="res://Scene/volume_slider.tscn" id="13_6xdcy"]
+[ext_resource type="AudioStream" uid="uid://cf22o3gfbbtka" path="res://Assets/music/game.mp3" id="15_sdc5b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wx3g3"]
 texture = ExtResource("1_mcpdy")
@@ -506,10 +508,64 @@ offset_bottom = 205.0
 theme_override_font_sizes/font_size = 50
 text = "PAUSE"
 
+[node name="Option_settings" type="Panel" parent="pause_menu"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 394.0
+offset_top = 166.0
+offset_right = 895.0
+offset_bottom = 679.0
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu/Option_settings"]
+layout_mode = 0
+offset_right = 501.0
+offset_bottom = 513.0
+color = Color(1, 0.760784, 0.447059, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/Option_settings"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 487.0
+offset_bottom = 430.0
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="pause_menu/Option_settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Option"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="pause_menu/Option_settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider" parent="pause_menu/Option_settings/VBoxContainer/Label2" instance=ExtResource("13_6xdcy")]
+layout_mode = 2
+offset_top = 46.0
+offset_right = 464.0
+offset_bottom = 62.0
+step = 0.1
+
+[node name="Back" type="Button" parent="pause_menu/Option_settings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"
+
 [node name="UI" parent="." instance=ExtResource("11_j8280")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_sdc5b")
+autoplay = true
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="pause"]
 [connection signal="pressed" from="pause_menu/continue" to="." method="unpause"]
 [connection signal="pressed" from="pause_menu/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="pause_menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="pause_menu/Option_settings/VBoxContainer/Back" to="." method="_on_back_pressed"]

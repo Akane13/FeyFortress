@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	print(Global.user_id)
 #New game button pressed
 func _on_new_game_pressed():
 	var a = get_tree().change_scene_to_file("res://Scene/Maps/Map1.tscn")
@@ -14,4 +16,7 @@ func _on_quit_pressed():
 
 #Option button press
 func _on_option_pressed():
-	pass # Replace with function body.
+	$Option.show()
+
+func _on_back_pressed():
+	$Option.hide()

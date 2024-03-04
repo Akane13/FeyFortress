@@ -24,11 +24,14 @@ func unpause():
 
 
 func _on_option_pressed():
-	pass # Replace with function body.
-
+	$pause_menu/Option_settings.show()
 
 func _on_quit_pressed():
 	get_tree().paused=false
 	var a = get_tree().change_scene_to_packed(menu)
 	if a!=OK:
 		push_error("Error while changing scene: %s" % str(a))
+
+
+func _on_back_pressed():
+	$pause_menu/Option_settings.hide()

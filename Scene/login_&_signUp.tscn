@@ -1,0 +1,184 @@
+[gd_scene load_steps=2 format=3 uid="uid://ukt4wq351kvv"]
+
+[ext_resource type="Script" path="res://Scene/Maps/Sql_controller.gd" id="1_pr5se"]
+
+[node name="Sql_controller" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_pr5se")
+
+[node name="Sign_Up" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 40.0
+offset_top = 35.0
+offset_right = 1240.0
+offset_bottom = 685.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sign_Up"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="username" type="MarginContainer" parent="Sign_Up/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Sign_Up/VBoxContainer/username"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Username : 
+"
+
+[node name="username" type="LineEdit" parent="Sign_Up/VBoxContainer/username"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+placeholder_text = "Enter the Username"
+alignment = 1
+
+[node name="Password" type="MarginContainer" parent="Sign_Up/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Sign_Up/VBoxContainer/Password"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Password : 
+"
+
+[node name="Password" type="LineEdit" parent="Sign_Up/VBoxContainer/Password"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+placeholder_text = "Enter the Password"
+alignment = 1
+secret = true
+secret_character = "*"
+
+[node name="Confirm_Password" type="MarginContainer" parent="Sign_Up/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="Sign_Up/VBoxContainer/Confirm_Password"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Confirm Password : 
+"
+
+[node name="Confirm_Password" type="LineEdit" parent="Sign_Up/VBoxContainer/Confirm_Password"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+placeholder_text = "Confirm Password"
+alignment = 1
+secret = true
+secret_character = "*"
+
+[node name="Sign_Up" type="Button" parent="Sign_Up/VBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SIGN UP"
+
+[node name="Login" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 35.0
+offset_right = 1240.0
+offset_bottom = 685.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Login"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Username" type="MarginContainer" parent="Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="Login/VBoxContainer/Username"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Username : 
+"
+
+[node name="username" type="LineEdit" parent="Login/VBoxContainer/Username"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+placeholder_text = "Enter the Username"
+alignment = 1
+
+[node name="Password" type="MarginContainer" parent="Login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="Login/VBoxContainer/Password"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Password : 
+"
+
+[node name="Password" type="LineEdit" parent="Login/VBoxContainer/Password"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+placeholder_text = "Enter the Password"
+alignment = 1
+secret = true
+secret_character = "*"
+
+[node name="Login" type="Button" parent="Login/VBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LOGIN"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Message" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 582.0
+offset_top = 603.0
+offset_right = 687.0
+offset_bottom = 663.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Sign_Up/VBoxContainer/Sign_Up" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Login/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
