@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh04eo4alf7qb"]
+
+[ext_resource type="Texture2D" uid="uid://qguvtsorrfy5" path="res://Assets/Icons/end/Banner_Connection_Up.png" id="1_2n8ub"]
+[ext_resource type="Script" path="res://Scene/Maps/game_over.gd" id="1_u3k48"]
+[ext_resource type="Texture2D" uid="uid://bejjdutnn0y7n" path="res://Assets/Icons/main menu/Button_Disable_3Slides.png" id="2_cyjfb"]
+[ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="3_dq4xv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6rriy"]
+font = ExtResource("3_dq4xv")
+font_size = 1000
+font_color = Color(0.407843, 0.301961, 0.180392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nvrt"]
+font = ExtResource("3_dq4xv")
+font_size = 1500
+font_color = Color(1, 1, 0.0235294, 1)
+outline_size = 75
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5evc"]
+font = ExtResource("3_dq4xv")
+font_size = 1000
+font_color = Color(0, 0, 0, 1)
+
+[node name="Game_Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u3k48")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="BannerConnectionUp" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 425)
+scale = Vector2(3.5, 3.375)
+texture = ExtResource("1_2n8ub")
+
+[node name="quit" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 100)
+offset_left = 536.0
+offset_top = 469.0
+offset_right = 736.0
+offset_bottom = 569.0
+texture_normal = ExtResource("2_cyjfb")
+texture_pressed = ExtResource("2_cyjfb")
+texture_hover = ExtResource("2_cyjfb")
+stretch_mode = 0
+
+[node name="quit" type="Label" parent="quit"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 3688.0
+offset_bottom = 1136.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+label_settings = SubResource("LabelSettings_6rriy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="win_title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 117.0
+offset_right = 6490.0
+offset_bottom = 2197.0
+scale = Vector2(0.05, 0.05)
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_3nvrt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 323.0
+offset_right = 4072.0
+offset_bottom = 2183.0
+scale = Vector2(0.05, 0.05)
+text = "Score"
+label_settings = SubResource("LabelSettings_k5evc")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -1,11 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bun4yijhd5307"]
+[gd_scene load_steps=16 format=3 uid="uid://bun4yijhd5307"]
 
-[ext_resource type="Texture2D" uid="uid://bil1yniup2xa7" path="res://Assets/UI/BackGround.png" id="1_66wqk"]
 [ext_resource type="Script" path="res://Scene/UIScenes/mainmenu.gd" id="1_epmi1"]
 [ext_resource type="Texture2D" uid="uid://lo6dr11lginq" path="res://Assets/UI/button/Button_Hover_3Slides.png" id="1_w3hcf"]
 [ext_resource type="Texture2D" uid="uid://dfhyvhmpxuety" path="res://Assets/UI/button/Button_Disable_3Slides.png" id="2_1ebo5"]
+[ext_resource type="Texture2D" uid="uid://hy2i2pmq4fks" path="res://Assets/Icons/main menu/sky.png" id="2_husx1"]
+[ext_resource type="Texture2D" uid="uid://drr232eu61e1t" path="res://Assets/Icons/main menu/ground.png" id="3_s8sdn"]
+[ext_resource type="Texture2D" uid="uid://buv157xwspts7" path="res://Assets/Icons/main menu/sky_cloud.png" id="4_hooh2"]
+[ext_resource type="Texture2D" uid="uid://b58j1641whm3d" path="res://Assets/Icons/main menu/cloud1.png" id="5_hkoqc"]
 [ext_resource type="PackedScene" uid="uid://fk1a4pokv5tg" path="res://Scene/volume_slider.tscn" id="5_ufvu2"]
 [ext_resource type="AudioStream" uid="uid://dcprohsmhb8xi" path="res://Assets/music/main menu.mp3" id="6_bygqm"]
+[ext_resource type="Texture2D" uid="uid://di0du4s6na1du" path="res://Assets/Icons/main menu/cloud2.png" id="6_wmigh"]
+[ext_resource type="Texture2D" uid="uid://doyxml5y8iiav" path="res://Assets/Icons/main menu/title.png" id="7_emiav"]
+[ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="9_abboe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkwn4"]
+font = ExtResource("9_abboe")
+font_size = 700
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_671y5"]
+font = ExtResource("9_abboe")
+font_size = 700
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymdan"]
+font = ExtResource("9_abboe")
+font_size = 700
+font_color = Color(0, 0, 0, 1)
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -16,14 +37,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_epmi1")
 
-[node name="background" type="TextureRect" parent="."]
+[node name="sky" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_66wqk")
+texture = ExtResource("2_husx1")
+expand_mode = 1
+
+[node name="Ground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8sdn")
+expand_mode = 1
+
+[node name="Sky_Cloud" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_hooh2")
+expand_mode = 1
+
+[node name="Cloud1" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("5_hkoqc")
+expand_mode = 1
+
+[node name="Cloud2" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("6_wmigh")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("7_emiav")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -33,7 +101,7 @@ anchor_bottom = 1.0
 offset_left = 25.0
 offset_top = 25.0
 offset_right = -25.0
-offset_bottom = -25.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,7 +110,7 @@ custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 12
-theme_override_constants/separation = 20
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="NewGame" type="TextureButton" parent="MarginContainer/VBoxContainer"]
@@ -58,11 +126,13 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 15.0
 offset_top = 1.0
-offset_right = 287.0
-offset_bottom = 58.0
+offset_right = 5455.0
+offset_bottom = 1061.0
+scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "New Game"
+text = "START GAME"
+label_settings = SubResource("LabelSettings_lkwn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -79,11 +149,13 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 15.0
 offset_top = 1.0
-offset_right = 287.0
-offset_bottom = 58.0
+offset_right = 5515.0
+offset_bottom = 1121.0
+scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Option"
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_671y5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -98,14 +170,16 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
 layout_mode = 0
-offset_left = 15.0
+offset_left = 11.0
 offset_top = 1.0
-offset_right = 287.0
-offset_bottom = 58.0
+offset_right = 5591.0
+offset_bottom = 1041.0
+scale = Vector2(0.05, 0.05)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Quit
+text = "QUIT GAME
 "
+label_settings = SubResource("LabelSettings_ymdan")
 horizontal_alignment = 1
 vertical_alignment = 1
 

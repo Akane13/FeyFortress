@@ -9,7 +9,7 @@ var bulletDamage
 @onready var explosion = $explosion
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var pathSpawnerNode= get_tree().get_root().get_node("Map1/PathSpawner")
 	for i in pathSpawnerNode.get_child_count():
 		if pathSpawnerNode.get_child(i).name == pathName:

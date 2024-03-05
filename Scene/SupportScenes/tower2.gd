@@ -2,20 +2,20 @@ extends StaticBody2D
 
 @onready var container=$BulletContainer
 var bullet= preload("res://Scene/SupportScenes/bullet.tscn")
-var bulletDamage:float= 1.5
-var update_limit = 5
-var update_gold = 3
+var bulletDamage= 3
+var update_limit = 2
+var update_gold = 5
 var pathName
 var currTargets = []
 var curr
 
 var reload=0
-var range= 280
+var range= 200
 @onready var timer = get_node("Upgrade/ProgressBar/Timer")
 var startShooting = false
 
 func _physics_process(_delta: float) -> void:
-	get_node("Upgrade/ProgressBar").global_position = self.position + Vector2(-50,50)
+	get_node("Upgrade/ProgressBar").global_position = self.position + Vector2(-48,56)
 	if is_instance_valid(curr):
 		if timer.is_stopped():
 			shoot()
@@ -23,23 +23,16 @@ func _physics_process(_delta: float) -> void:
 	else:
 		for i in get_node("BulletContainer").get_child_count():
 			get_node("BulletContainer").get_child(i).queue_free()
-	
+			
 	upgrade_level()
-
-func shoot():
-	var tempBullet= bullet.instantiate()
-	tempBullet.pathName=pathName
-	tempBullet.bulletDamage = bulletDamage
-	$BulletContainer.call_deferred("add_child",tempBullet)
-	tempBullet.global_position =$Aim.global_position
-
-func _on_tower_body_entered(body):
+	
+func _on_tower_2_body_entered(body):
 	if "enemy1" in body.name:
 		var tempArray= []
-		currTargets = get_node("Tower").get_overlapping_bodies()
+		currTargets = get_node("Tower2").get_overlapping_bodies()
 		
 		for i in currTargets:
-			if "enemy" in i.name:
+			if "enemy1" in i.name:
 				tempArray.append(i)
 				
 		var currTarget= null
@@ -55,8 +48,21 @@ func _on_tower_body_entered(body):
 		pathName=currTarget.get_parent().name
 		
 
-func _on_tower_body_exited(_body):
-		currTargets = get_node("Tower").get_overlapping_bodies()
+func _on_tower_2_body_exited(_body):
+	currTargets = get_node("Tower2").get_overlapping_bodies()
+
+func shoot():
+	var tempBullet= bullet.instantiate()
+	tempBullet.pathName=pathName
+	tempBullet.bulletDamage = bulletDamage
+	$BulletContainer.call_deferred("add_child",tempBullet)
+	tempBullet.global_position =$Aim.global_position
+
+func upgrade_level():
+	pass
+
+func _on_timer_timeout():
+	shoot()
 
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -66,39 +72,37 @@ func _on_input_event(_viewport, event, _shape_idx):
 			if towerPath.get_child(i).name != self.name:
 				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide()
 		get_node("Upgrade/Upgrade").visible = !get_node("Upgrade/Upgrade").visible
-		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-31,-147)
+		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-30,-120)
 
+func _on_upgrade_pressed():
+	if update_limit >0:
+		if Global.Gold >= update_gold:
+			update_limit-=1
+			if update_limit==1:
+				bulletDamage+=1
+				range+=15
+				reload-=0.2
+				timer.wait_time = 3 - reload
+				
+				Global.Gold-= update_gold
+				update_gold += 5
+				$"Tower2(phrase_2)".show()
+				$"Tower2(phrase_1)".hide()
+			elif update_limit==0:
+				bulletDamage+=2
+				range+=15
+				reload-=0.4
+				timer.wait_time = 3 - reload
+				
+				Global.Gold-= update_gold
+				$"Tower2(phrase_3)".show()
+				$"Tower2(phrase_2)".hide()
 
-func _on_timer_timeout():
-	shoot()
+func _on_upgrade_mouse_entered():
+	$Tower2/CollisionShape2D.show()
 
-
+func _on_upgrade_mouse_exited():
+	$Tower2/CollisionShape2D.hide()
 
 func _on_delete_pressed():
 	queue_free()
-
-func upgrade_level():
-	#$Upgrade/Upgrade/HBoxContainer/Attack_Speed/Label.text = str(3-reload)
-	#$Upgrade/Upgrade/HBoxContainer/Power/Label.text = str(bulletDamage)
-	#$Upgrade/Upgrade/HBoxContainer/Range/Label.text = str(range)
-	
-	$Tower/CollisionShape2D.shape.radius = range
-
-func _on_upgrade_pressed():
-	if Global.Gold >= update_gold:
-		if update_limit >0:
-			bulletDamage+=0.3
-			range +=30
-			reload+=0.3
-			timer.wait_time = 3 - reload
-			
-			Global.Gold-=update_gold
-			update_limit -=1
-			update_gold +=3
-
-func _on_upgrade_mouse_entered():
-	$Tower/CollisionShape2D.show()
-
-
-func _on_upgrade_mouse_exited():
-	$Tower/CollisionShape2D.hide()

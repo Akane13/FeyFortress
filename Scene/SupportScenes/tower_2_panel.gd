@@ -1,11 +1,11 @@
 extends Panel
 
-@onready var tower=preload("res://Scene/SupportScenes/tower1.tscn")
+@onready var tower=preload("res://Scene/SupportScenes/tower2.tscn")
 var currTile
 
 func _on_gui_input(event):
 	#check the gold is enough or not it not then the tower won't be deployed
-	if Global.Gold>=10:
+	if Global.Gold>=20:
 		var tempTower = tower.instantiate()
 		
 		if event is InputEventMouseButton and event.button_mask == 1:
@@ -30,11 +30,10 @@ func _on_gui_input(event):
 					else:
 						get_child(1).get_node("area").modulate= Color(0,255,0,0.3)
 				else:
-						get_child(1).get_node("area").modulate= Color(255,255,255,0.3)
+					get_child(1).get_node("area").modulate= Color(255,255,255,0.3)
 					
 		elif event is InputEventMouseButton and event.button_mask == 0:
 			var drop_pos = get_child(1).global_position # were we want the tower
-			
 			if (event.global_position.x >=1164 || event.global_position.y<=64):
 				get_child(1).queue_free()
 			else:
@@ -49,7 +48,7 @@ func _on_gui_input(event):
 						tempTower.get_node("area").hide()
 						
 						#game gold subtract 
-						Global.Gold -=10
+						Global.Gold -=20
 		else:
 			if get_child_count()>1:
 				get_child(1).queue_free()

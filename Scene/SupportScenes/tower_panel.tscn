@@ -1,26 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://65coan24dipy"]
+[gd_scene load_steps=7 format=3 uid="uid://65coan24dipy"]
 
 [ext_resource type="Script" path="res://Scene/SupportScenes/tower_panel.gd" id="1_40y6m"]
+[ext_resource type="Texture2D" uid="uid://dn2ksme83pv1n" path="res://Assets/Icons/playing/Banner_Connection_Right.png" id="1_ghp8q"]
 [ext_resource type="Texture2D" uid="uid://d4ev2rqm2785b" path="res://Assets/Towers/Tower_Red.png" id="2_e6kjr"]
+[ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="4_m5qct"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tty6"]
+texture = ExtResource("1_ghp8q")
+expand_margin_left = 30.0
+expand_margin_top = 30.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pv33c"]
+font = ExtResource("4_m5qct")
+font_size = 750
+font_color = Color(0, 0, 0, 1)
 
 [node name="tower_panel" type="Panel"]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 144.0
+offset_bottom = 144.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4tty6")
 script = ExtResource("1_40y6m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
-scale = Vector2(0.5, 0.25)
+texture_filter = 1
+position = Vector2(64, 17.25)
+scale = Vector2(0.65625, 0.634766)
 texture = ExtResource("2_e6kjr")
 
 [node name="Label" type="Label" parent="Sprite2D"]
-offset_left = -16.0
-offset_top = 96.0
-offset_right = 54.0
-offset_bottom = 124.0
-theme_override_font_sizes/font_size = 20
+offset_left = -62.4768
+offset_top = 100.42
+offset_right = 2562.52
+offset_bottom = 1122.42
+scale = Vector2(0.05, 0.05)
 text = "10 gold
 "
+label_settings = SubResource("LabelSettings_pv33c")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

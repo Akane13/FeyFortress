@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://hjxa0855vv4s"]
+
+[ext_resource type="Texture2D" uid="uid://cubxmjck7crrg" path="res://Assets/Towers/tower1.png" id="1_33p8g"]
+[ext_resource type="Texture2D" uid="uid://dn2ksme83pv1n" path="res://Assets/Icons/playing/Banner_Connection_Right.png" id="1_nnlh4"]
+[ext_resource type="Script" path="res://Scene/SupportScenes/tower_2_panel.gd" id="1_tiais"]
+[ext_resource type="Texture2D" uid="uid://d1qty6m50sq4" path="res://Assets/Towers/tower2.png" id="2_trt6m"]
+[ext_resource type="Texture2D" uid="uid://bmtqfeu25r073" path="res://Assets/Towers/tower3.png" id="3_t2xkv"]
+[ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="6_y70ji"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlj8l"]
+texture = ExtResource("1_nnlh4")
+expand_margin_left = 30.0
+expand_margin_top = 30.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0mpfw"]
+font = ExtResource("6_y70ji")
+font_size = 1000
+font_color = Color(0, 0, 0, 1)
+
+[node name="tower2_panel" type="Panel"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 144.0
+offset_bottom = 144.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mlj8l")
+script = ExtResource("1_tiais")
+
+[node name="Tower1" type="Sprite2D" parent="."]
+position = Vector2(36.2, 40.5)
+scale = Vector2(0.35, 0.507813)
+texture = ExtResource("1_33p8g")
+
+[node name="Tower2" type="Sprite2D" parent="Tower1"]
+position = Vector2(80, 0)
+texture = ExtResource("2_trt6m")
+
+[node name="Tower3" type="Sprite2D" parent="Tower1"]
+position = Vector2(160, 0)
+texture = ExtResource("3_t2xkv")
+
+[node name="Label" type="Label" parent="Tower1"]
+offset_left = -6.28516
+offset_top = 77.7846
+offset_right = 3493.71
+offset_bottom = 1078.78
+scale = Vector2(0.05, 0.05)
+text = "20 gold"
+label_settings = SubResource("LabelSettings_0mpfw")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

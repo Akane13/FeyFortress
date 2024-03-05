@@ -62,5 +62,6 @@ func _on_login_pressed():
 			#Checking error
 			if a!=OK:
 				push_error("Error while changing scene: %s" % str(a))
+				
 	else:
 		print("Error: Database query failed!")
