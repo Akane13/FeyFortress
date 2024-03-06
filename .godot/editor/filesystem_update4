@@ -1,7 +1,6 @@
-res://Scene/login_&_signUp.tscn
+res://Scene/Maps/Map1.tscn
 res://Scene/SupportScenes/tower1.gd
 res://Scene/volume_slider.gd
-res://Scene/Maps/Map1.tscn
 res://Scene/SupportScenes/UI.tscn
 res://Scene/SupportScenes/tower_panel.tscn
 res://Scene/SupportScenes/tower_2_panel.tscn
@@ -10,6 +9,6 @@ res://Scene/SupportScenes/tower1.tscn
 res://Scene/SupportScenes/tower2.tscn
 res://Scene/SupportScenes/enemy/enemy1.tscn
 res://Scene/Maps/path_map1.tscn
+res://Scene/login_&_signUp.tscn
 res://Scene/UIScenes/mainmenu.tscn
-res://Scene/Maps/Sql_controller.gd
-res://Scene/UIScenes/mainmenu.gd
+res://Scene/SupportScenes/enemy/enemy1.gd

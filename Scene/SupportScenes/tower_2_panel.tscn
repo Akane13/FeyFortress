@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://hjxa0855vv4s"]
 
-[ext_resource type="Texture2D" uid="uid://cubxmjck7crrg" path="res://Assets/Towers/tower1.png" id="1_33p8g"]
+[ext_resource type="Texture2D" uid="uid://ds5aqqacdranf" path="res://Assets/Towers/tower1.png" id="1_33p8g"]
 [ext_resource type="Texture2D" uid="uid://dn2ksme83pv1n" path="res://Assets/Icons/playing/Banner_Connection_Right.png" id="1_nnlh4"]
 [ext_resource type="Script" path="res://Scene/SupportScenes/tower_2_panel.gd" id="1_tiais"]
 [ext_resource type="Texture2D" uid="uid://d1qty6m50sq4" path="res://Assets/Towers/tower2.png" id="2_trt6m"]

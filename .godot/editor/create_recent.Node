@@ -1,10 +1,10 @@
+TextureRect
+TextureButton
+TextEdit
 AnimationPlayer
 Container
 AudioStreamPlayer
-TextureRect
 HBoxContainer
-TextureButton
-TextEdit
 TextureProgressBar
 Label
 CanvasLayer

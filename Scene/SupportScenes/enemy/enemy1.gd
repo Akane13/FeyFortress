@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var speed = 100
 var Health = 10
-var enemy_count:int=0
 @onready var Path= get_parent()
 
 func _physics_process(delta):
@@ -20,4 +19,3 @@ func _physics_process(delta):
 
 func death():
 	Path.get_parent().queue_free()
-	enemy_count+=1
