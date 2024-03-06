@@ -1,7 +1,10 @@
 extends Control
 
+@onready var animation_player = $AnimationPlayer
+
 func _ready():
 	print(Global.user_id)
+	animation_player.play("movement")
 #New game button pressed
 func _on_new_game_pressed():
 	var a = get_tree().change_scene_to_file("res://Scene/Maps/Map1.tscn")

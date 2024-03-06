@@ -1,6 +1,103 @@
-[gd_scene load_steps=2 format=3 uid="uid://ukt4wq351kvv"]
+[gd_scene load_steps=31 format=3 uid="uid://ukt4wq351kvv"]
 
 [ext_resource type="Script" path="res://Scene/Maps/Sql_controller.gd" id="1_pr5se"]
+[ext_resource type="Texture2D" uid="uid://hy2i2pmq4fks" path="res://Assets/Icons/main menu/sky.png" id="2_4rhyr"]
+[ext_resource type="Texture2D" uid="uid://s8s4m5j1wp1n" path="res://Assets/UI/button/button2.png" id="2_yf66e"]
+[ext_resource type="Texture2D" uid="uid://djut3e31ddgrk" path="res://Assets/UI/button/button2_click.png" id="3_qgps4"]
+[ext_resource type="Texture2D" uid="uid://drr232eu61e1t" path="res://Assets/Icons/main menu/ground.png" id="3_qxl2d"]
+[ext_resource type="Texture2D" uid="uid://buv157xwspts7" path="res://Assets/Icons/main menu/sky_cloud.png" id="4_og33y"]
+[ext_resource type="Texture2D" uid="uid://b58j1641whm3d" path="res://Assets/Icons/main menu/cloud1.png" id="5_yuf0r"]
+[ext_resource type="Texture2D" uid="uid://di0du4s6na1du" path="res://Assets/Icons/main menu/cloud2.png" id="6_qyue4"]
+[ext_resource type="Texture2D" uid="uid://doyxml5y8iiav" path="res://Assets/Icons/main menu/title.png" id="7_rurlw"]
+[ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="8_8rnry"]
+[ext_resource type="Texture2D" uid="uid://tibo7wbr1qvc" path="res://Assets/Icons/Carved_3Slides.png" id="9_matoo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4toko"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lkijy"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kji4"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tecua"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2ymq"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx4v7"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kilof"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_euhlh"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5di8r"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0eep"]
+font = ExtResource("8_8rnry")
+font_size = 500
+font_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3isul"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0sv2r"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ofdr"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j32vb"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udesq"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxp0l"]
+texture = ExtResource("9_matoo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0le67"]
+font = ExtResource("8_8rnry")
+
+[sub_resource type="Animation" id="Animation_dg1ff"]
+resource_name = "movement"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-36, -34), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cloud2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(18, 21), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2o0u"]
+_data = {
+"movement": SubResource("Animation_dg1ff")
+}
 
 [node name="Sql_controller" type="Control"]
 layout_mode = 3
@@ -9,17 +106,82 @@ offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_pr5se")
 
+[node name="sky" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4rhyr")
+expand_mode = 1
+
+[node name="Ground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qxl2d")
+expand_mode = 1
+
+[node name="Sky_Cloud" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_og33y")
+expand_mode = 1
+
+[node name="Cloud1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -18.5192
+offset_top = -17.4904
+offset_right = 1261.48
+offset_bottom = 702.51
+texture = ExtResource("5_yuf0r")
+expand_mode = 1
+
+[node name="Cloud2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.25961
+offset_top = 10.8029
+offset_right = 1289.26
+offset_bottom = 730.803
+texture = ExtResource("6_qyue4")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = -21.0
+offset_right = 923.0
+offset_bottom = 339.0
+texture = ExtResource("7_rurlw")
+expand_mode = 1
+
 [node name="Sign_Up" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
-offset_left = 40.0
-offset_top = 35.0
-offset_right = 1240.0
-offset_bottom = 685.0
+offset_left = 320.0
+offset_top = 181.0
+offset_right = 954.0
+offset_bottom = 586.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sign_Up"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="username" type="MarginContainer" parent="Sign_Up/VBoxContainer"]
@@ -27,21 +189,17 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="Sign_Up/VBoxContainer/username"]
-custom_minimum_size = Vector2(400, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Username : 
-"
-
 [node name="username" type="LineEdit" parent="Sign_Up/VBoxContainer/username"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-placeholder_text = "Enter the Username"
+theme_override_colors/font_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_4toko")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lkijy")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_8kji4")
+placeholder_text = "Username"
 alignment = 1
 
 [node name="Password" type="MarginContainer" parent="Sign_Up/VBoxContainer"]
@@ -49,21 +207,17 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="Sign_Up/VBoxContainer/Password"]
-custom_minimum_size = Vector2(400, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Password : 
-"
-
 [node name="Password" type="LineEdit" parent="Sign_Up/VBoxContainer/Password"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-placeholder_text = "Enter the Password"
+theme_override_colors/font_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_tecua")
+theme_override_styles/focus = SubResource("StyleBoxTexture_s2ymq")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_tx4v7")
+placeholder_text = "password"
 alignment = 1
 secret = true
 secret_character = "*"
@@ -73,37 +227,74 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label3" type="Label" parent="Sign_Up/VBoxContainer/Confirm_Password"]
-custom_minimum_size = Vector2(400, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Confirm Password : 
-"
-
 [node name="Confirm_Password" type="LineEdit" parent="Sign_Up/VBoxContainer/Confirm_Password"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-placeholder_text = "Confirm Password"
+theme_override_colors/font_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_kilof")
+theme_override_styles/focus = SubResource("StyleBoxTexture_euhlh")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_5di8r")
+placeholder_text = "confirm password"
 alignment = 1
 secret = true
 secret_character = "*"
 
-[node name="Sign_Up" type="Button" parent="Sign_Up/VBoxContainer"]
-custom_minimum_size = Vector2(400, 50)
+[node name="HBoxContainer" type="HBoxContainer" parent="Sign_Up/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "SIGN UP"
+alignment = 1
+
+[node name="Login_page" type="TextureButton" parent="Sign_Up/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("2_yf66e")
+texture_pressed = ExtResource("3_qgps4")
+stretch_mode = 0
+
+[node name="Login" type="Label" parent="Sign_Up/VBoxContainer/HBoxContainer/Login_page"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 3397.0
+offset_bottom = 828.0
+scale = Vector2(0.05, 0.05)
+text = "Login"
+label_settings = SubResource("LabelSettings_i0eep")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sign_Up" type="TextureButton" parent="Sign_Up/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_yf66e")
+texture_pressed = ExtResource("3_qgps4")
+stretch_mode = 0
+
+[node name="Sign Up" type="Label" parent="Sign_Up/VBoxContainer/HBoxContainer/Sign_Up"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 3397.0
+offset_bottom = 828.0
+scale = Vector2(0.05, 0.05)
+text = "Register
+"
+label_settings = SubResource("LabelSettings_i0eep")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Login" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 40.0
-offset_top = 35.0
-offset_right = 1240.0
-offset_bottom = 685.0
+offset_left = 370.0
+offset_top = 154.0
+offset_right = 920.0
+offset_bottom = 671.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Login"]
 layout_mode = 2
@@ -115,21 +306,17 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label2" type="Label" parent="Login/VBoxContainer/Username"]
-custom_minimum_size = Vector2(400, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Username : 
-"
-
 [node name="username" type="LineEdit" parent="Login/VBoxContainer/Username"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-placeholder_text = "Enter the Username"
+theme_override_colors/font_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_3isul")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0sv2r")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_1ofdr")
+placeholder_text = "username"
 alignment = 1
 
 [node name="Password" type="MarginContainer" parent="Login/VBoxContainer"]
@@ -137,48 +324,104 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label3" type="Label" parent="Login/VBoxContainer/Password"]
-custom_minimum_size = Vector2(400, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Password : 
-"
-
 [node name="Password" type="LineEdit" parent="Login/VBoxContainer/Password"]
+texture_filter = 1
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-placeholder_text = "Enter the Password"
+theme_override_colors/font_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_colors/font_placeholder_color = Color(0.396078, 0.290196, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_j32vb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_udesq")
+theme_override_styles/read_only = SubResource("StyleBoxTexture_xxp0l")
+placeholder_text = "password"
 alignment = 1
 secret = true
 secret_character = "*"
 
-[node name="Login" type="Button" parent="Login/VBoxContainer"]
-custom_minimum_size = Vector2(400, 50)
+[node name="Button" type="HBoxContainer" parent="Login/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "LOGIN"
+alignment = 1
+
+[node name="Register" type="TextureButton" parent="Login/VBoxContainer/Button"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("2_yf66e")
+texture_pressed = ExtResource("3_qgps4")
+stretch_mode = 0
+
+[node name="Register" type="Label" parent="Login/VBoxContainer/Button/Register"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 3397.0
+offset_bottom = 828.0
+scale = Vector2(0.05, 0.05)
+text = "Register"
+label_settings = SubResource("LabelSettings_i0eep")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Login" type="TextureButton" parent="Login/VBoxContainer/Button"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("2_yf66e")
+texture_pressed = ExtResource("3_qgps4")
+stretch_mode = 0
+
+[node name="Login" type="Label" parent="Login/VBoxContainer/Button/Login"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 3318.0
+offset_bottom = 827.0
+scale = Vector2(0.05, 0.05)
+text = "Login"
+label_settings = SubResource("LabelSettings_i0eep")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Message" type="Label" parent="."]
+[node name="Message_box" type="TextureRect" parent="."]
 visible = false
-layout_mode = 2
-offset_left = 582.0
+texture_filter = 1
+layout_mode = 0
+offset_left = 392.0
 offset_top = 603.0
-offset_right = 687.0
-offset_bottom = 663.0
+offset_right = 871.0
+offset_bottom = 667.0
+texture = ExtResource("9_matoo")
+
+[node name="Message" type="Label" parent="Message_box"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 3.0
+offset_right = 469.0
+offset_bottom = 63.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.136887, 0.0911096, 0.0417771, 1)
+theme_override_fonts/font = ExtResource("8_8rnry")
+theme_override_font_sizes/font_size = 25
 text = "Message"
+label_settings = SubResource("LabelSettings_0le67")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Sign_Up/VBoxContainer/Sign_Up" to="." method="_on_sign_up_pressed"]
-[connection signal="pressed" from="Login/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2o0u")
+}
+
+[connection signal="pressed" from="Sign_Up/VBoxContainer/HBoxContainer/Login_page" to="." method="_on_login_page_pressed"]
+[connection signal="pressed" from="Sign_Up/VBoxContainer/HBoxContainer/Sign_Up" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Login/VBoxContainer/Button/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="Login/VBoxContainer/Button/Login" to="." method="_on_login_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
