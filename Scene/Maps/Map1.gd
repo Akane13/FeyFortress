@@ -3,6 +3,8 @@ extends Node2D
 var menu = load("res://Scene/UIScenes/mainmenu.tscn")
 # Called when the node enters the scene tree for the first time.
 var database : SQLite
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var game_over = $GameOver
 
 func _ready():
 	Global.Health=10
@@ -27,13 +29,13 @@ func unpause():
 	$UI.show()
 	$Towers.show()
 
-
 func _on_option_pressed():
 	$pause_menu/Option_settings.show()
 
 func _physics_process(_delta):
 	if Global.Health==0:
 		get_tree().paused=true
+		game_over.play()
 		$UILayer/Game_Over.show()
 		var success = database.update_rows("Users","id= '" + str(Global.user_id) +"'", {"game_score" : int(Global.score)})
 		if !success:
@@ -45,6 +47,9 @@ func _on_quit_pressed():
 	if a!=OK:
 		push_error("Error while changing scene: %s" % str(a))
 
-
 func _on_back_pressed():
 	$pause_menu/Option_settings.hide()
+
+
+func _on_audio_stream_player_2d_finished():
+	audio_stream_player_2d.play()

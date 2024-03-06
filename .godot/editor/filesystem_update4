@@ -11,4 +11,9 @@ res://Scene/SupportScenes/enemy/enemy1.tscn
 res://Scene/Maps/path_map1.tscn
 res://Scene/login_&_signUp.tscn
 res://Scene/UIScenes/mainmenu.tscn
+res://Scene/Maps/Map1.gd
+res://Scene/SupportScenes/tower_panel.gd
+res://Scene/SupportScenes/bullet.tscn
+res://Scene/SupportScenes/bullet.gd
+res://Scene/UIScenes/mainmenu.gd
 res://Scene/SupportScenes/enemy/enemy1.gd

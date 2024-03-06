@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh04eo4alf7qb"]
+[gd_scene load_steps=8 format=3 uid="uid://bh04eo4alf7qb"]
 
 [ext_resource type="Texture2D" uid="uid://qguvtsorrfy5" path="res://Assets/Icons/end/Banner_Connection_Up.png" id="1_2n8ub"]
 [ext_resource type="Script" path="res://Scene/Maps/game_over.gd" id="1_u3k48"]
 [ext_resource type="Texture2D" uid="uid://bejjdutnn0y7n" path="res://Assets/Icons/main menu/Button_Disable_3Slides.png" id="2_cyjfb"]
 [ext_resource type="FontFile" uid="uid://goa1gtckvoi0" path="res://Assets/KH-Dot-Kagurazaka-12.ttf" id="3_dq4xv"]
-[ext_resource type="AudioStream" uid="uid://cdqcfrjg62q2" path="res://Assets/music/lose.mp3" id="5_t1jim"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6rriy"]
 font = ExtResource("3_dq4xv")
@@ -92,8 +91,5 @@ scale = Vector2(0.05, 0.05)
 text = "Score"
 label_settings = SubResource("LabelSettings_k5evc")
 horizontal_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_t1jim")
 
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

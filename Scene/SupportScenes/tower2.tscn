@@ -30,7 +30,7 @@ func _draw():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aay78"]
-size = Vector2(91, 92)
+size = Vector2(111, 106)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdw5s"]
 bg_color = Color(1, 0, 0, 1)
@@ -79,7 +79,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tower_detector"]
-position = Vector2(0, 9)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_aay78")
 
 [node name="Tower2(phrase_1)" type="Sprite2D" parent="."]

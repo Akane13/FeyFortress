@@ -144,6 +144,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7r6xy")
 value = 50.0
 show_percentage = false
 script = SubResource("GDScript_x768c")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

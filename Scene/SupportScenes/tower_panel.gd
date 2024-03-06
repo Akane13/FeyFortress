@@ -33,7 +33,7 @@ func _on_gui_input(event):
 						get_child(1).get_node("area").modulate= Color(255,255,255,0.3)
 					
 		elif event is InputEventMouseButton and event.button_mask == 0:
-			var drop_pos = get_child(1).global_position # were we want the tower
+			var drop_pos = get_tree().get_root().get_node("Map1").get_global_mouse_position()
 			
 			if (event.global_position.x >=1164 || event.global_position.y<=64):
 				get_child(1).queue_free()

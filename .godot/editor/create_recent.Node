@@ -1,9 +1,10 @@
+AudioStreamPlayer
+Timer
 TextureRect
 TextureButton
 TextEdit
 AnimationPlayer
 Container
-AudioStreamPlayer
 HBoxContainer
 TextureProgressBar
 Label
@@ -11,4 +12,3 @@ CanvasLayer
 Control
 Node
 ColorRect
-Panel

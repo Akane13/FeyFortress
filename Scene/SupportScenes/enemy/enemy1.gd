@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 100
+@export var speed = 150
 var Health = 10
 @onready var Path= get_parent()
 

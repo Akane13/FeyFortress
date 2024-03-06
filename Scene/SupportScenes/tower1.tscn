@@ -31,8 +31,8 @@ func _draw():
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1peby"]
-radius = 55.0
-height = 120.0
+radius = 63.0
+height = 168.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4umu1"]
 bg_color = Color(1, 0, 0, 1)

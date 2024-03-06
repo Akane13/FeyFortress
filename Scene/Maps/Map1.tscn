@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://s5p0hsp3e05t"]
+[gd_scene load_steps=38 format=3 uid="uid://s5p0hsp3e05t"]
 
 [ext_resource type="Texture2D" uid="uid://coc2eoigl1qf1" path="res://Assets/Enviroment/Tilesets/Tilemap_Flat.png" id="1_mcpdy"]
 [ext_resource type="Script" path="res://Scene/Maps/Map1.gd" id="1_x4j4b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8mp4avv72h45" path="res://Assets/Enviroment/Props/11.png" id="7_f4iif"]
 [ext_resource type="Texture2D" uid="uid://dkpgytgbi04he" path="res://Assets/Enviroment/Props/17.png" id="8_q7um8"]
 [ext_resource type="Script" path="res://Scene/Maps/PathSpawner.gd" id="9_njij6"]
+[ext_resource type="AudioStream" uid="uid://cdqcfrjg62q2" path="res://Assets/music/lose.mp3" id="11_e51ou"]
 [ext_resource type="PackedScene" uid="uid://chsbc0b16ys4d" path="res://Scene/SupportScenes/UI.tscn" id="11_j8280"]
 [ext_resource type="Texture2D" uid="uid://bwk6jqa13itvk" path="res://Assets/Icons/playing/pause.png" id="11_s8lco"]
 [ext_resource type="Texture2D" uid="uid://bejjdutnn0y7n" path="res://Assets/Icons/main menu/Button_Disable_3Slides.png" id="12_228yy"]
@@ -430,6 +431,10 @@ layer_0/tile_data = PackedInt32Array(-131069, 458752, 3, -131070, 393216, 0, -13
 stream = ExtResource("15_sdc5b")
 autoplay = true
 
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_e51ou")
+
 [node name="UILayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
@@ -589,6 +594,7 @@ offset_right = 414.0
 offset_bottom = 53.0
 step = 0.1
 
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="pause"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/continue" to="." method="unpause"]
