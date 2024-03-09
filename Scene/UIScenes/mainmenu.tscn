@@ -36,8 +36,8 @@ texture = ExtResource("11_dbae3")
 
 [sub_resource type="Animation" id="Animation_as06w"]
 resource_name = "movement"
-length = 5.0
-loop_mode = 1
+length = 2.5
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,10 +45,10 @@ tracks/0/path = NodePath("Cloud1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-56, -34), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(-56, -34)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,10 +57,10 @@ tracks/1/path = NodePath("Cloud2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(21, 34), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(21, 34)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -69,10 +69,10 @@ tracks/2/path = NodePath("Title:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -12), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y0rv3"]
@@ -130,27 +130,22 @@ expand_mode = 1
 
 [node name="Cloud1" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -56.0
-offset_top = -34.0
-offset_right = 1224.0
-offset_bottom = 686.0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("5_hkoqc")
 expand_mode = 1
 
 [node name="Cloud2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 34.0
-offset_right = 1301.0
-offset_bottom = 754.0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("6_wmigh")
 expand_mode = 1
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = -12.0
 offset_right = 1280.0
-offset_bottom = 708.0
+offset_bottom = 720.0
 texture = ExtResource("7_emiav")
 expand_mode = 1
 
@@ -292,6 +287,7 @@ autoplay = true
 libraries = {
 "": SubResource("AnimationLibrary_y0rv3")
 }
+autoplay = "movement"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]

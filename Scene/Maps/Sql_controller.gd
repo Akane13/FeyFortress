@@ -6,17 +6,11 @@ var database : SQLite
 @onready var sign_up = $Sign_Up
 @onready var animation_player = $AnimationPlayer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	database = SQLite.new()
 	database.path = "res://Fey_Fortress.db"
 	database.open_db()
-	animation_player.play("movement")
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
 	pass
 
 func _on_sign_up_pressed():
@@ -45,7 +39,6 @@ func _on_sign_up_pressed():
 					$Timer.start()
 					message.text = "Success"
 					$Message_box.show()
-					
 		else:
 				print("Error: Database query failed!")
 	else:
@@ -69,7 +62,7 @@ func _on_login_pressed():
 				$Message_box.show()
 			else:
 				Global.user_id = check[0]["id"]
-				print(Global.user_id)
+				print(Global.user_id) #check the user_id in console
 				var a = get_tree().change_scene_to_file("res://Scene/UIScenes/mainmenu.tscn")
 				#Checking error
 				if a!=OK:

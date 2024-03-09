@@ -64,13 +64,13 @@ texture = ExtResource("9_matoo")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0le67"]
 font = ExtResource("8_8rnry")
-font_size = 25
+font_size = 23
 font_color = Color(0.278431, 0.2, 0.113725, 1)
 
 [sub_resource type="Animation" id="Animation_dg1ff"]
 resource_name = "movement"
-length = 4.0
-loop_mode = 1
+length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,10 +78,10 @@ tracks/0/path = NodePath("Cloud1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-36, -34), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(-36, -34)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -90,10 +90,10 @@ tracks/1/path = NodePath("Cloud2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(18, 21), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(18, 21)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n2o0u"]
@@ -391,9 +391,9 @@ wait_time = 5.0
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 392.0
+offset_left = 309.0
 offset_top = 603.0
-offset_right = 871.0
+offset_right = 971.0
 offset_bottom = 667.0
 texture = ExtResource("9_matoo")
 
@@ -401,7 +401,7 @@ texture = ExtResource("9_matoo")
 layout_mode = 2
 offset_left = 11.0
 offset_top = 3.0
-offset_right = 469.0
+offset_right = 651.0
 offset_bottom = 63.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -417,6 +417,7 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_n2o0u")
 }
+autoplay = "movement"
 
 [connection signal="pressed" from="Sign_Up/VBoxContainer/HBoxContainer/Login_page" to="." method="_on_login_page_pressed"]
 [connection signal="pressed" from="Sign_Up/VBoxContainer/HBoxContainer/Sign_Up" to="." method="_on_sign_up_pressed"]

@@ -15,7 +15,6 @@ func _physics_process(delta):
 		Global.Gold += 1
 		Global.score+=25
 		death()
-		
 
 func death():
 	Path.get_parent().queue_free()

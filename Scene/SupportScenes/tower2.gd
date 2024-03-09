@@ -46,7 +46,6 @@ func _on_tower_2_body_entered(body):
 		
 		curr=currTarget
 		pathName=currTarget.get_parent().name
-		
 
 func _on_tower_2_body_exited(_body):
 	currTargets = get_node("Tower2").get_overlapping_bodies()
@@ -59,7 +58,7 @@ func shoot():
 	tempBullet.global_position =$Aim.global_position
 
 func upgrade_level():
-	pass
+	$Tower2/CollisionShape2D.shape.radius=range
 
 func _on_timer_timeout():
 	shoot()

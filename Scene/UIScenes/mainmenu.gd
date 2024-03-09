@@ -4,8 +4,7 @@ extends Control
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 func _ready():
-	print(Global.user_id)
-	animation_player.play("movement")
+	print(Global.user_id) # can check in console whether the useer id match with the database
 #New game button pressed
 func _on_new_game_pressed():
 	var a = get_tree().change_scene_to_file("res://Scene/Maps/Map1.tscn")

@@ -53,7 +53,6 @@ func _on_tower_body_entered(body):
 		
 		curr=currTarget
 		pathName=currTarget.get_parent().name
-		
 
 func _on_tower_body_exited(_body):
 		currTargets = get_node("Tower").get_overlapping_bodies()
@@ -73,15 +72,10 @@ func _on_timer_timeout():
 	shoot()
 
 
-
 func _on_delete_pressed():
 	queue_free()
 
 func upgrade_level():
-	#$Upgrade/Upgrade/HBoxContainer/Attack_Speed/Label.text = str(3-reload)
-	#$Upgrade/Upgrade/HBoxContainer/Power/Label.text = str(bulletDamage)
-	#$Upgrade/Upgrade/HBoxContainer/Range/Label.text = str(range)
-	
 	$Tower/CollisionShape2D.shape.radius = range
 
 func _on_upgrade_pressed():
