@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710266002
+::res://::1710266278
 default_bus_layout.tres::AudioBusLayout::3571531476358465982::1709726131::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1709999383::0::1::::<><>::
 icon.svg::CompressedTexture2D::1067004644875384145::1709726131::1709726131::1::::<><>::
@@ -9,7 +9,7 @@ gdsqlite.gdextension::GDExtension::-1::1709726131::0::1::::<><>::
 godot-sqlite.gd::GDScript::-1::1709726131::0::1::::<>EditorPlugin<>::
 LICENSE.md::TextFile::-1::1709726131::0::1::::<><>::
 plugin.cfg::TextFile::-1::1709726131::0::1::::<><>::
-::res://addons/godot-sqlite/bin/::1710265996
+::res://addons/godot-sqlite/bin/::1710266272
 ::res://addons/godot-sqlite/bin/libgdsqlite.macos.template_debug.framework/::1709726131
 ::res://addons/godot-sqlite/bin/libgdsqlite.macos.template_release.framework/::1709726131
 ::res://Assets/::1709727047
