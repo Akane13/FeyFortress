@@ -4,7 +4,11 @@ var database : SQLite
 @onready var message = $Message_box/Message
 @onready var login = $Login
 @onready var sign_up = $Sign_Up
-@onready var animation_player = $AnimationPlayer
+@onready var signup_username = $Sign_Up/VBoxContainer/username/username
+@onready var signup_password = $Sign_Up/VBoxContainer/Password/Password
+@onready var signup_confirm_password = $Sign_Up/VBoxContainer/Confirm_Password/Confirm_Password
+@onready var login_username = $Login/VBoxContainer/Username/username
+@onready var login_password = $Login/VBoxContainer/Password/Password
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,9 +18,8 @@ func _ready():
 	pass
 
 func _on_sign_up_pressed():
-	var success = database.query("Select Count(*) from Users where username='"+$Sign_Up/VBoxContainer/username/username.text+"'")
-	if ($Sign_Up/VBoxContainer/username/username.text!="" && $Sign_Up/VBoxContainer/Password/Password.text!="" &&$Sign_Up/VBoxContainer/Confirm_Password/Confirm_Password.text!="") :
-		print($Sign_Up/VBoxContainer/Confirm_Password/Confirm_Password.text)
+	var success = database.query("Select Count(*) from Users where username='"+signup_username.text+"'")
+	if (signup_username.text!="" && signup_password.text!="" && signup_confirm_password.text!="") :
 		if success:
 			var count = database.query_result[0]
 			#Attempt conversion to integer
@@ -25,14 +28,14 @@ func _on_sign_up_pressed():
 				message.text = "Already exist that username"
 				$Message_box.show()
 			else:
-				if $Sign_Up/VBoxContainer/Confirm_Password/Confirm_Password.text != $Sign_Up/VBoxContainer/Password/Password.text:
+				if signup_confirm_password.text != signup_password.text:
 					$Timer.start()
 					message.text = "Confirm password is not same as password"
 					$Message_box.show()
 				else:
 					var data = {
-						"username":$Sign_Up/VBoxContainer/username/username.text,
-						"password":$Sign_Up/VBoxContainer/Password/Password.text 
+						"username":signup_username.text,
+						"password":signup_password.text 
 					}
 					
 					database.insert_row("Users",data)
@@ -52,8 +55,8 @@ func _on_timer_timeout():
 
 
 func _on_login_pressed():
-	var success = database.query("SELECT id, username, password FROM Users WHERE username ='"+ $Login/VBoxContainer/Username/username.text + "' AND password ='" + $Login/VBoxContainer/Password/Password.text + "'")
-	if ($Login/VBoxContainer/Username/username.text!="" &&$Login/VBoxContainer/Password/Password.text!=""):
+	var success = database.query("SELECT id, username, password FROM Users WHERE username ='"+ login_username.text + "' AND password ='" + login_password.text + "'")
+	if (login_username.text!="" &&login_password.text!=""):
 		if success:
 			var check=database.query_result
 			if len(check)<=0 :

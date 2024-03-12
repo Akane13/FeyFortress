@@ -1,6 +1,8 @@
+res://Scene/login_&_signUp.tscn
 res://Scene/SupportScenes/tower1.gd
 res://Scene/volume_slider.gd
-res://Scene/login_&_signUp.tscn
+res://Scene/SupportScenes/tower_2_panel.gd
+res://Scene/SupportScenes/tower_panel.gd
 res://Scene/UIScenes/mainmenu.tscn
 res://Scene/Maps/Map1.tscn
 res://Scene/Maps/path_map1.tscn
@@ -12,4 +14,4 @@ res://Scene/SupportScenes/tower_panel.tscn
 res://Scene/SupportScenes/tower_2_panel.tscn
 res://Scene/SupportScenes/bullet.tscn
 res://Scene/volume_slider.tscn
-res://SceneHandler.tscn
+res://Scene/Maps/game_over.tscn
